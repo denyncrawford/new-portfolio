@@ -18,9 +18,46 @@ export default function App({ Component, url }: AppProps) {
   return (
     <html>
       <head>
-        <meta charSet="utf-8" />
+        <meta charSet="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>crawford.ml</title>
+
+        <title>Miguel Rangel - crawford.ml</title>
+
+        <meta
+          name="description"
+          content="Full-Stack developer from Venezuela, now in Argentina. Open source enthusiast, tech learner, proficient in JavaScript, TypeScript, Node.js, Deno, and exploring Rust."
+        />
+
+        <meta
+          property="og:title"
+          content="Miguel Rangel - crawford.ml"
+        />
+        <meta
+          property="og:description"
+          content="Full-Stack developer from Venezuela, now in Argentina. Open source enthusiast, tech learner, proficient in JavaScript, TypeScript, Node.js, Deno, and exploring Rust."
+        />
+        <meta property="og:type" content="website" />
+        <meta
+          property="og:image"
+          content={asset("/miguel-rangel-site2x.jpg")}
+        />
+        <meta property="og:url" content="https://crawford.ml" />
+        <meta property="og:site_name" content="Miguel Rangel - crawford.ml" />
+
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:site" content="@DenynBvB" />
+        <meta
+          name="twitter:title"
+          content="Miguel Rangel - crawford.ml"
+        />
+        <meta
+          name="twitter:description"
+          content="Full-Stack developer from Venezuela, now in Argentina. Open source enthusiast, tech learner, proficient in JavaScript, TypeScript, Node.js, Deno, and exploring Rust."
+        />
+        <meta
+          name="twitter:image"
+          content={asset("/miguel-rangel-site2x.jpg")}
+        />
         <link rel="stylesheet" href={asset("/global.css")} />
         <script
           dangerouslySetInnerHTML={{
