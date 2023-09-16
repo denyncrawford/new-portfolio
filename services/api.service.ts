@@ -1,5 +1,5 @@
 import axios, { AxiosPromise, getAdapter } from "axios";
-import { LRUCache } from 'https://esm.sh/lru-cache@10.0.1'
+import { LRUCache } from 'lru-cache'
 import {
   ICacheLike,
   cacheAdapterEnhancer,

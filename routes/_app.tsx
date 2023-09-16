@@ -1,7 +1,9 @@
 import { AppProps } from "$fresh/server.ts";
 import { Header } from "@/islands/Header.tsx";
-import { Footer } from "@/components/Footer.tsx";
+import { Footer } from "@/islands/Footer.tsx";
 import { asset } from "$fresh/runtime.ts";
+import { useSignal } from "@preact/signals";
+import { IS_BROWSER } from "$fresh/src/runtime/utils.ts";
 
 export default function App({ Component, url }: AppProps) {
   const code = `function global_dark(change) {
@@ -11,8 +13,10 @@ export default function App({ Component, url }: AppProps) {
   }
   global_dark();`;
 
+  const darkModeSignal = useSignal<"light" | "dark">("light");
+
   return (
-    <html class="dark">
+    <html>
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -24,10 +28,11 @@ export default function App({ Component, url }: AppProps) {
           }}
         />
       </head>
+
       <body class="dark:bg-[#0f172a]">
-        <Header active={url.pathname} />
+        <Header active={url.pathname} darkModeSignal={darkModeSignal} />
         <Component />
-        <Footer />
+        <Footer darkModeSignal={darkModeSignal} />
       </body>
     </html>
   );

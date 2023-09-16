@@ -1,10 +1,11 @@
-import { useSignal } from "@preact/signals";
+import { Signal } from "@preact/signals";
 import { IS_BROWSER } from "$fresh/src/runtime/utils.ts";
 import { HiMoon, HiSun } from "react-icons/hi";
 import { JSX } from "preact/jsx-runtime";
 
 interface DarkModeProps extends JSX.HTMLAttributes<HTMLButtonElement> {
   prev: "light" | "dark";
+  darkModeSignal: Signal<"light" | "dark" | null>
 }
 
 export const HeaderModeButton = (props: DarkModeProps) => {
@@ -22,17 +23,17 @@ export const HeaderModeButton = (props: DarkModeProps) => {
       return props.prev;
     }
     updateMode();
-    if (localStorage.theme.includes("dark")) {
+    if (localStorage?.theme?.includes("dark")) {
       return "dark";
     }
     return "light";
   }
 
-  const darkMode = useSignal(getMode());
+  props.darkModeSignal.value = getMode();
 
   const toggleTheme = () => {
-    darkMode.value = darkMode.value === "light" ? "dark" : "light";
-    localStorage.theme = darkMode.value;
+    props.darkModeSignal.value = props.darkModeSignal.value === "light" ? "dark" : "light";
+    localStorage.theme = props.darkModeSignal.value;
     updateMode();
   };
 
@@ -45,7 +46,7 @@ export const HeaderModeButton = (props: DarkModeProps) => {
         }}
         class="inline-flex items-center justify-center px-5 py-3 text-base font-medium leading-6 text-indigo-500 transition duration-150 ease-in-out border border-transparent rounded-md hover:border-indigo-500 hover:text-indigo-500 focus:outline-none"
       >
-        {darkMode.value === "light"
+        {props.darkModeSignal.value === "light"
           ? <HiMoon class="h-5" />
           : <HiSun class="h-5 text-yellow-500" />}
       </button>

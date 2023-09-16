@@ -42,6 +42,7 @@
     "react-icons/cg": "https://cdn.jsdelivr.net/gh/urielch/react-icons-cg@1.0.9/mod.ts",
     "react-crypto-icons": "https://esm.run/@jparnaudo/react-crypto-icons@1.0.5",
     "axios": "npm:axios",
+    "lru-cache": "npm:lru-cache",
     "axios/lib/adapters/adapters.js": "https://esm.sh/axios@1.5.0/lib/adapters/adapters.js",
     "axios-extensions": "npm:axios-extensions"
   },

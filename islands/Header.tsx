@@ -3,9 +3,11 @@ import { HeaderModeButton } from "@/islands/HeaderModeButton.tsx";
 import { HiMenu, HiX } from "react-icons/hi";
 import { useSignal } from "@preact/signals";
 import { IS_BROWSER } from "$fresh/src/runtime/utils.ts";
+import { Signal } from "@preact/signals";
 
 type Props = {
   active: string;
+  darkModeSignal: Signal<"light" | "dark">
 };
 
 export const Header = (props: Props) => {
@@ -45,7 +47,7 @@ export const Header = (props: Props) => {
         <div class="flex flex-col md:flex-row items-center">
           <HeaderButton onClick={close} active={props.active} href="/">About Me</HeaderButton>
           <HeaderButton onClick={close} active={props.active} href="/blog">Blog</HeaderButton>
-          <HeaderModeButton onClick={close} prev="dark" />
+          <HeaderModeButton onClick={close} prev="light" darkModeSignal={props.darkModeSignal} />
         </div>
       </div>
     </div>
