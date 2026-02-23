@@ -27,7 +27,6 @@ const projectsWhitelist = [
 ];
 
 export const getProjects = async () => {
-
   const projectsResult = await Promise.all([
     api.get<IProject[]>("/orgs/astrodon/repos"),
     api.get<IProject[]>("/users/denyncrawford/repos"),

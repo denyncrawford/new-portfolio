@@ -1,5 +1,5 @@
-import { ErrorPageProps } from "$fresh/server.ts";
-import { Head } from "$fresh/runtime.ts";
+import { Head } from "fresh/runtime";
+import { ErrorPageProps } from "fresh/compat";
 
 export default function Error500Page({ error }: ErrorPageProps) {
   // return <p>500 internal error: {(error as Error).message}</p>;
@@ -17,7 +17,9 @@ export default function Error500Page({ error }: ErrorPageProps) {
             height="128"
             alt="the Fresh logo: a sliced lemon dripping with juice"
           />
-          <h1 class="text-4xl font-bold dark:text-white">500 - Something went wrong :(</h1>
+          <h1 class="text-4xl font-bold dark:text-white">
+            500 - Something went wrong :(
+          </h1>
           <p class="my-4 dark:text-gray-300">
             The page you were looking is not available.
           </p>
@@ -25,5 +27,5 @@ export default function Error500Page({ error }: ErrorPageProps) {
         </div>
       </div>
     </>
-  )
+  );
 }

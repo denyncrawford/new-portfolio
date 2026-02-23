@@ -1,9 +1,9 @@
-import { AppProps } from "$fresh/server.ts";
 import { Header } from "@/islands/Header.tsx";
 import { Footer } from "@/islands/Footer.tsx";
-import { asset } from "$fresh/runtime.ts";
+import { asset } from "fresh/runtime";
 import { useSignal } from "@preact/signals";
 import { IS_BROWSER } from "$fresh/src/runtime/utils.ts";
+import { AppProps } from "fresh/compat";
 
 export default function App({ Component, url }: AppProps) {
   const code = `function global_dark(change) {

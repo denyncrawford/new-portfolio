@@ -1,4 +1,4 @@
-import { HandlerContext } from "$fresh/server.ts";
+import { HandlerContext } from "fresh";
 
 // Jokes courtesy of https://punsandoneliners.com/randomness/programmer-jokes/
 const JOKES = [

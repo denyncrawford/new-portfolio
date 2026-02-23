@@ -3,13 +3,14 @@
 import { MainSection } from "@/components/home/MainSection.tsx";
 import { getProjects } from "@/services/projects.service.ts";
 import { IProject } from "@/services/projects.types.ts";
-import { Handlers, PageProps } from "$fresh/server.ts";
+import { PageProps } from "fresh";
 import { ProjectsSection } from "@/components/home/ProjectsSection.tsx";
 import { SupportSection } from "@/components/home/SupportSection.tsx";
-import { Head } from "$fresh/runtime.ts";
+import { Head } from "fresh/runtime";
+import { Handlers } from "fresh/compat";
 
 export const handler: Handlers<IProject[]> = {
-  async GET(_req, ctx) {
+  async GET(ctx) {
     const projects = await getProjects();
     return ctx.render(projects);
   },

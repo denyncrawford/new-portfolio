@@ -7,7 +7,7 @@ import { Signal } from "@preact/signals";
 
 type Props = {
   active: string;
-  darkModeSignal: Signal<"light" | "dark">
+  darkModeSignal: Signal<"light" | "dark">;
 };
 
 export const Header = (props: Props) => {
@@ -16,7 +16,7 @@ export const Header = (props: Props) => {
 
   const close = () => {
     isOpen.value = false;
-  }
+  };
 
   return (
     <div class="fixed top-0 left-0 w-full">
@@ -45,9 +45,17 @@ export const Header = (props: Props) => {
           Miguel Rangel
         </a>
         <div class="flex flex-col md:flex-row items-center">
-          <HeaderButton onClick={close} active={props.active} href="/">About Me</HeaderButton>
-          <HeaderButton onClick={close} active={props.active} href="/blog">Blog</HeaderButton>
-          <HeaderModeButton onClick={close} prev="light" darkModeSignal={props.darkModeSignal} />
+          <HeaderButton onClick={close} active={props.active} href="/">
+            About Me
+          </HeaderButton>
+          <HeaderButton onClick={close} active={props.active} href="/blog">
+            Blog
+          </HeaderButton>
+          <HeaderModeButton
+            onClick={close}
+            prev="light"
+            darkModeSignal={props.darkModeSignal}
+          />
         </div>
       </div>
     </div>

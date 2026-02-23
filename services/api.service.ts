@@ -1,8 +1,8 @@
 import axios, { AxiosPromise, getAdapter } from "axios";
-import { LRUCache } from 'lru-cache'
+import { LRUCache } from "lru-cache";
 import {
-  ICacheLike,
   cacheAdapterEnhancer,
+  ICacheLike,
   throttleAdapterEnhancer,
 } from "axios-extensions";
 import { IProject } from "@/services/projects.types.ts";

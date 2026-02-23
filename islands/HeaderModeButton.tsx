@@ -5,13 +5,12 @@ import { JSX } from "preact/jsx-runtime";
 
 interface DarkModeProps extends JSX.HTMLAttributes<HTMLButtonElement> {
   prev: "light" | "dark";
-  darkModeSignal: Signal<"light" | "dark" | null>
+  darkModeSignal: Signal<"light" | "dark" | null>;
 }
 
 export const HeaderModeButton = (props: DarkModeProps) => {
-
   function updateMode() {
-    const w = (window as unknown as { isDark: boolean });
+    const w = window as unknown as { isDark: boolean };
     w.isDark = localStorage.theme === "dark" ||
       (!("theme" in localStorage) &&
         window.matchMedia("(prefers-color-scheme: dark)").matches);
@@ -27,12 +26,14 @@ export const HeaderModeButton = (props: DarkModeProps) => {
       return "dark";
     }
     return "light";
-  }
+  };
 
   props.darkModeSignal.value = getMode();
 
   const toggleTheme = () => {
-    props.darkModeSignal.value = props.darkModeSignal.value === "light" ? "dark" : "light";
+    props.darkModeSignal.value = props.darkModeSignal.value === "light"
+      ? "dark"
+      : "light";
     localStorage.theme = props.darkModeSignal.value;
     updateMode();
   };
